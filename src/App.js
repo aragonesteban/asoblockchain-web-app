@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
+import { Routes, Route } from 'react-router-dom'
 import './App.css';
+
+// STYLES
+import Theme from "./config/theme";
+import { GlobalStyles } from "./components/GlobalStyles";
+import styled from "styled-components"
+
+import { routes } from './routes'
+
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Theme>
+      <Fragment>
+        <GlobalStyles />
+        <Navbar />
+        <Routes>
+          {routes.map((route) => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={route.component} />
+          ))}
+        </Routes>
+        <Footer />
+      </Fragment>
+    </Theme>
   );
 }
 
 export default App;
+
+/**
+ *          
+ */
