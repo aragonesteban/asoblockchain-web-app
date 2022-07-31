@@ -16,12 +16,14 @@ const MediaPartnerSection = () => {
                 Media Partners
             </TitleSection>
             <img
-                className='w-[20em] inline-block mr-8 cursor-pointer hover:scale-105 ease-in-out duration-300'
+                className='w-[10em] md:w-[15em] inline-block mr-8 cursor-pointer hover:scale-105 ease-in-out duration-300'
                 src={beInCrypto}
+                alt='/'
                 onClick={goToSiteMediaPartner.bind(null, "https://beincrypto.com/")} />
             <img
-                className='w-[20em] inline-block cursor-pointer hover:scale-105 ease-in-out duration-300'
+                className='w-[10em] md:w-[15em] inline-block cursor-pointer hover:scale-105 ease-in-out duration-300'
                 src={criptoInforme}
+                alt='/'
                 onClick={goToSiteMediaPartner.bind(null, "https://criptoinforme.com/")} />
         </div>
     )

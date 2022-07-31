@@ -14,7 +14,7 @@ export const TEAM = [
         instagram: 'https://www.instagram.com/_suarezcamilo/reels/'
     },
     {
-        id: 1,
+        id: 2,
         name: "Fabian Delgado",
         rol: "Vicepresidente",
         image: fabianDelgado,
@@ -22,7 +22,7 @@ export const TEAM = [
         instagram: 'https://www.instagram.com/fabitcoiner/'
     },
     {
-        id: 1,
+        id: 3,
         name: "Alejandro Celis",
         rol: "Product Manager",
         image: alejandroCelis,
@@ -30,7 +30,7 @@ export const TEAM = [
         instagram: 'https://www.instagram.com/celisalej093/'
     },
     {
-        id: 1,
+        id: 4,
         name: "Daniela Cordoba",
         rol: "Community Manager",
         image: danielaCordoba,
@@ -38,7 +38,7 @@ export const TEAM = [
         instagram: 'https://www.instagram.com/danielazuarr/'
     },
     {
-        id: 1,
+        id: 5,
         name: "Esteban Aragon",
         rol: "Software Developer",
         image: estebanAragon,

@@ -36,10 +36,17 @@ export const TitleSection = styled.h1`
     @media (max-width: 768px) {
         font-size: 2rem;
     }
+    @media (max-width: 640px) {
+        font-size: 1.5rem !important;
+    }
 `;
 
 export const WelcomeTitle = styled(TitleSection)`
     animation: 500ms ${slideInLeftAnimation};
+    @media (max-width: 640px) {
+        margin-top: 1em;
+        font-size: 1.5rem !important;
+    }
 `
 
 export const DescriptionSection = styled.p`
@@ -55,6 +62,13 @@ export const DescriptionSection = styled.p`
 
 export const WelcomeInfo = styled(DescriptionSection)`
     animation: 500ms ${slideInLeftAnimation};
+    @media (max-width: 768px) {
+        font-size: 1.4rem;
+        margin-right: 0;
+    }
+    @media (max-width: 640px) {
+        font-size: 1rem !important;
+    }
 `
 
 export const PartnersTitle = styled(TitleSection)`
@@ -67,6 +81,12 @@ export const IllustrationWelcome = styled.img.attrs({
     width: 50vw;
     animation: 500ms ${slideInRightAnimation};
     max-width: initial;
+    @media (max-width: 768px) {
+        width: 70vw;
+    }
+    @media (max-width: 640px) {
+        width: 90vw;
+    }
 `
 
 export const ButtonKnowUs = styled.button`
@@ -86,13 +106,31 @@ export const ButtonKnowUs = styled.button`
         transition: 500ms;
     }
     animation: 500ms ${slideInLeftAnimation};
+    @media (max-width: 768px) {
+        width: 21vw;
+        font-size: 2vw;
+    }
+    @media (max-width: 640px) {
+        width: 30vw;
+        font-size: 3vw;
+    }
 `
 
 export const AllianceTitle = styled(TitleSection)`
     animation: 500ms ${slideInRightAnimation};
+    @media (max-width: 768px) {
+        font-size: 1.5rem;
+    }
 `
 export const AllianceInfo = styled(DescriptionSection)`
     animation: 500ms ${slideInRightAnimation};
+    @media (max-width: 768px) {
+        font-size: 1.4rem;
+        margin-right: 0;
+    }
+    @media (max-width: 640px) {
+        font-size: 1rem;
+    }
 `
 
 export const IllustrationAlliance = styled.img.attrs({
@@ -120,6 +158,13 @@ export const FirstImageBackground = styled.img.attrs({
     left: -50%;
     opacity: 20%;
     z-index: -1;
+    @media (max-width: 768px) {
+        left: -38%;
+    }
+    @media (max-width: 640px) {
+        left: -65%;
+        width: 100vw;
+    }
 `
 
 export const SecondImageBackground = styled.img.attrs({
@@ -131,6 +176,15 @@ export const SecondImageBackground = styled.img.attrs({
     right: -51%;
     opacity: 20%;
     z-index: -1;
+    @media (max-width: 768px) {
+        bottom: -10%;
+        right: -40%;
+    }
+    @media (max-width: 640px) {
+        bottom: -20%;
+        right: -65%;
+        width: 100vw;
+    }
 `
 
 export const PartnersContainer = styled.section`
@@ -170,6 +224,9 @@ export const PartnerFounderCard = styled.div`
     padding: 13px;
     height: 12em;
     box-shadow: 0px 1px 8px 0px rgb(0 0 0 / 62%);
+    @media (max-width: 640px) {
+        height: 8em;
+    }
 `
 
 export const PartnerFounterLogo = styled.img.attrs(props => ({

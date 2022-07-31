@@ -10,6 +10,9 @@ export const NavbarContainer = styled.header`
   position: absolute;
   justify-content: space-between;
   z-index: 1000;
+  @media (max-width: 640px) {
+    justify-content: center;
+  }
 `;
 
 export const LogoAsoblockchain = styled.div`
@@ -25,6 +28,10 @@ export const Logo = styled.img.attrs({
   @media (max-width: 768px) {
     margin-left: 5vw;
   }
+  @media (max-width: 640px) {
+    margin-left: 0;
+    width: 4em;
+  }
 `
 
 export const Title = styled.img.attrs({
@@ -32,6 +39,9 @@ export const Title = styled.img.attrs({
 })`
   margin-left: 1em;
   width: 11vw;
+  @media (max-width: 640px) {
+   display: none;
+  }
 `
 
 export const NavbarItem = styled.div`
@@ -63,5 +73,8 @@ export const NavbarItemsContainer = styled.div`
   margin-right: 10vw;
   @media (max-width: 768px) {
     margin-right: 5vw;
+  }
+  @media (max-width: 640px) {
+     display: none;
   }
 `

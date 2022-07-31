@@ -29,7 +29,7 @@ const Navbar = () => {
 
             <NavbarItemsContainer>
                 {routes.map((route) => (
-                    <NavbarItem>
+                    <NavbarItem key={route.path}>
                         <NavLink to={route.path} key={route.path} style={{ textDecoration: 'none' }}>
                             <NavbarItemText
                                 isActive={isActiveRoute(route.path)}>
