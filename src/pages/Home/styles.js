@@ -42,7 +42,7 @@ export const TitleSection = styled.h1`
 `;
 
 export const WelcomeTitle = styled(TitleSection)`
-    animation: 500ms ${slideInLeftAnimation};
+    //animation: 500ms ${slideInLeftAnimation};
     @media (max-width: 640px) {
         margin-top: 1em;
         font-size: 1.5rem !important;
@@ -61,7 +61,7 @@ export const DescriptionSection = styled.p`
 `;
 
 export const WelcomeInfo = styled(DescriptionSection)`
-    animation: 500ms ${slideInLeftAnimation};
+    //animation: 500ms ${slideInLeftAnimation};
     @media (max-width: 768px) {
         font-size: 1.4rem;
         margin-right: 0;
@@ -72,14 +72,14 @@ export const WelcomeInfo = styled(DescriptionSection)`
 `
 
 export const PartnersTitle = styled(TitleSection)`
-    animation: 500ms ${fadeInAnimation};
+    //animation: 500ms ${fadeInAnimation};
 `
 
 export const IllustrationWelcome = styled.img.attrs({
     src: `${illustrationHome}`
 })`
     width: 50vw;
-    animation: 500ms ${slideInRightAnimation};
+    //animation: 500ms ${slideInRightAnimation};
     max-width: initial;
     @media (max-width: 768px) {
         width: 70vw;
@@ -105,7 +105,7 @@ export const ButtonKnowUs = styled.button`
         transform: scale(1.05);
         transition: 500ms;
     }
-    animation: 500ms ${slideInLeftAnimation};
+    //animation: 500ms ${slideInLeftAnimation};
     @media (max-width: 768px) {
         width: 21vw;
         font-size: 2vw;
@@ -117,13 +117,13 @@ export const ButtonKnowUs = styled.button`
 `
 
 export const AllianceTitle = styled(TitleSection)`
-    animation: 500ms ${slideInRightAnimation};
+    //animation: 500ms ${slideInRightAnimation};
     @media (max-width: 768px) {
         font-size: 1.5rem;
     }
 `
 export const AllianceInfo = styled(DescriptionSection)`
-    animation: 500ms ${slideInRightAnimation};
+    //animation: 500ms ${slideInRightAnimation};
     @media (max-width: 768px) {
         font-size: 1.4rem;
         margin-right: 0;
@@ -137,7 +137,7 @@ export const IllustrationAlliance = styled.img.attrs({
     src: `${illustrationAlliance}`
 })`
     width: 50vw;
-    animation: 500ms ${slideInLeftAnimation};
+    //animation: 500ms ${slideInLeftAnimation};
     max-width: initial;
 `
 
@@ -172,7 +172,7 @@ export const SecondImageBackground = styled.img.attrs({
 })`
     width: 50vw;
     position: absolute;
-    bottom: -50%;
+    bottom: -90%;
     right: -51%;
     opacity: 20%;
     z-index: -1;

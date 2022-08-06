@@ -1,0 +1,66 @@
+.flip-card {
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background: #07062e;
+    box-shadow: 0px 1px 8px 0px rgb(0 0 0 / 62%);
+}
+
+.flip-card-back {
+    background: #0e0d3a;
+    box-shadow: 0px 1px 8px 0px rgb(0 0 0 / 62%);
+    transform: rotateY(180deg);
+}
+
+.icon-benefits {
+    font-size: 4em !important;
+    fill: #FFF !important;
+}
+
+.button-subscribe {
+    padding: .5em;
+    background: #00b707;
+    border-radius: 1em;
+    border: 0;
+    margin-top: 1em;
+    width: 10em;
+    font-size: 1em;
+    letter-spacing: .1rem;
+    color: white;
+    font-weight: 600;
+    font-family: 'Roboto';
+    cursor: pointer;
+}
+
+@media (max-width: 640px) {
+    .button-subscribe {
+        font-size: .8em;
+        align-self: center;
+    }
+}
+
+.button-subscribe:hover {
+    transform: scale(1.05);
+    transition: 500ms;
+}
+
+.form-community-member-container {
+    background: #07062e;
+}

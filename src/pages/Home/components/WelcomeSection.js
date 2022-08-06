@@ -12,7 +12,7 @@ import {
 
 
 const WelcomeSection = () => (
-    <WrapperTwoColumnsSection style={{ paddingTop: '14vw' }}>
+    <WrapperTwoColumnsSection>
         <FirstImageBackground />
         <SecondImageBackground/>
         <div className='text-center md:text-left'>

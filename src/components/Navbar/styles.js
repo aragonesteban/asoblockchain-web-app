@@ -7,7 +7,6 @@ export const NavbarContainer = styled.header`
   align-items: center;
   display: flex;
   padding-top: 2em;
-  position: absolute;
   justify-content: space-between;
   z-index: 1000;
   @media (max-width: 640px) {
