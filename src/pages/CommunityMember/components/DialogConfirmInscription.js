@@ -53,10 +53,10 @@ const DialogConfirmInscription = ({ showDialogConfirmInscription, toggleConfirma
                     <Close sx={{ fill: "#FFF" }} />
                 </IconButton>
                 <img src={LogoWhite} className='w-[3em]' alt="/" />
-                <span className='text-white text-3xl font-bold mt-5'>¡Gracias por inscribirte!</span>
-                <span className='text-white mt-2 text-xl'>Estas son las wallets para que realices tu pago</span>
-                <span className='text-white text-2xl mt-10'>Recuerda <span className='font-bold text-indigo-600'>$30usd mensual</span> o <span className='font-bold text-green-500'>$50usd anual</span></span>
-                <div className='grid grid-cols-2 gap-20 mt-8'>
+                <span className='text-white text-2xl md:text-3xl font-bold mt-5 text-center'>¡Gracias por inscribirte!</span>
+                <span className='text-white mt-2 text-lg md:text-xl text-center'>Estas son las wallets para que realices tu pago</span>
+                <span className='text-white text-lg md:text-2xl mt-6 md:mt-10 text-center'>Recuerda <span className='font-bold text-indigo-600'>$30usd mensual</span> o <span className='font-bold text-green-500'>$50usd anual</span></span>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 mt-8'>
                     {
                         wallets.map((wallet, index) => (
                             <div key={index} className='flex flex-col items-center'>
