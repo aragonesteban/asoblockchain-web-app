@@ -1,11 +1,3 @@
-import React from 'react'
-import '../pages/CommunityMember/styles.css'
-
-import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
-import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
-import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined';
-import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
-
 export const BENEFTIS = [
     {
         id: 1,

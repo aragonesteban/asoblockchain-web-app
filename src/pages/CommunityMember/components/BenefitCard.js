@@ -1,10 +1,9 @@
 import React from 'react'
-import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import '../styles.css'
 
 const BenefitCard = ({title, description, icon}) => {
     return (
-        <div className='flip-card h-[8em] w-[8em] md:h-[12em] md:w-[12em] bg-transparent inline-block m-2 md:m-3 whitespace-normal'>
+        <div className='flip-card h-[8em] w-[8em] md:h-[12em] md:w-[12em] bg-transparent inline-block m-2 md:m-3 whitespace-normal cursor-pointer'>
             <div className='flip-card-inner h-full w-full relative'>
                 <div className='flip-card-front h-full w-full absolute rounded-xl flex flex-col justify-center items-center'>
                     <span className='text-white text-md md:text-xl font-bold'>{title}</span>

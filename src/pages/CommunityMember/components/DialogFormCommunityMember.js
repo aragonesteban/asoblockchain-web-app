@@ -1,12 +1,18 @@
-import React, { useState, forwardRef } from 'react'
+import React, { Component, forwardRef } from 'react'
 import Dialog from '@mui/material/Dialog';
 import Slide from '@mui/material/Slide';
 import LogoWhite from '../../../assets/logo_white.png'
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/material/styles';
 import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import InputBase from '@mui/material/InputBase';
+import '../styles.css'
+
+import { collection, addDoc } from 'firebase/firestore'
+import { firestore } from '../../../config/init-firebase'
+import { COUNTRIES } from '../../../constants/countries';
+import { IconButton } from '@mui/material';
+import { Close } from '@mui/icons-material';
+
 
 const Transition = forwardRef(function Transition(props, ref,) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -35,76 +41,178 @@ const CustomTextField = styled(TextField)({
     },
 });
 
-const DialogFormCommunityMember = ({ isFormCommunityOpen, toggleFormCommunityMember }) => {
+export default class DialogFormCommunityMember extends Component {
 
-    const [name, setName] = useState("")
-    const [phone, setPhone] = useState(null)
-    const [email, setEmail] = useState("")
-    const [howYouKnowAsoblockchain, setHowYouKnowAsoblockchain] = useState("")
-    const [whyDoYouWantBePart, setwhyDoYouWantBePart] = useState("")
+    state = {
+        name: "",
+        phone: "",
+        email: "",
+        howYouKnowAsoblockchain: "",
+        whyDoYouWantBePart: "",
+        otherWhyDoYouWantBePart: "",
+        indicative: "",
+        isValidForm: false,
+    }
 
-    const handleClose = (event, reason) => {
-        if (reason && reason == "backdropClick") {
-            return
+    handleClose = (event, reason) => {
+        if (this.state.isValidForm) {
+            if (reason && reason === "backdropClick") {
+                return
+            }
+            this.saveCommunityMember()
+            this.clearInputs()
+            this.props.toggleFormCommunityMember(false)
         }
-        clearInputs()
-        toggleFormCommunityMember(false)
     }
 
-    const clearInputs = () => {
-        setName("")
-        setPhone("")
-        setEmail("")
-        setHowYouKnowAsoblockchain("")
-        setwhyDoYouWantBePart("")
+    clearInputs = () => {
+        this.setState({
+            name: "",
+            phone: "",
+            email: "",
+            howYouKnowAsoblockchain: "",
+            whyDoYouWantBePart: "",
+            indicative: ""
+        })
     }
 
-    return (
-        <Dialog
-            open={isFormCommunityOpen}
-            TransitionComponent={Transition}
-            disableEscapeKeyDown
-            PaperProps={{ style: { backgroundColor: "#07062e" } }}
-            onClose={handleClose}
-            aria-describedby="alert-dialog-slide-description">
-            <div className='p-10 flex flex-col justify-center items-center'>
-                <img src={LogoWhite} className='w-[3em]' />
-                <span className='text-white text-2xl font-bold mt-6'>Membresia</span>
-                <div className='grid grid-cols-2 gap-6 w-full mt-5'>
-                    <div className='text-center'>
-                        <span className='text-4xl font-bold text-indigo-600 block'>$50usd</span>
-                        <span className='text-white text-base font-bold block'>Mensual</span>
+    handleSetName = (event) => {
+        this.setState({
+            name: event.target.value
+        }, () => this.handleValidateForm())
+    }
+
+    handleSetIndicative = (event) => {
+        this.setState({
+            indicative: event.target.value
+        }, () => this.handleValidateForm())
+    }
+
+    handleSetPhone = (event) => {
+        this.setState({
+            phone: event.target.value
+        }, () => this.handleValidateForm())
+    }
+
+    handleSetEmail = (event) => {
+        this.setState({
+            email: event.target.value
+        }, () => this.handleValidateForm())
+    }
+
+    handleSetHowYouKnowAsoblockchain = (event) => {
+        this.setState({
+            howYouKnowAsoblockchain: event.target.value
+        }, () => this.handleValidateForm())
+    }
+
+    handleSetWhyDoYouWantBePart = (event) => {
+        if (true) {}
+        this.setState({
+            whyDoYouWantBePart: event.target.value
+        }, () => this.handleValidateForm())
+    }
+
+
+    handleValidateForm = () => {
+        const { name, phone, email, howYouKnowAsoblockchain, whyDoYouWantBePart, indicative } = this.state
+        if (name !== "" && phone !== "" && email !== "" && howYouKnowAsoblockchain !== "" && whyDoYouWantBePart !== "" && indicative !== "") {
+            this.setState({ isValidForm: true })
+        } else {
+            this.setState({ isValidForm: false })
+        }
+    }
+
+    saveCommunityMember = () => {
+        const { name, phone, email, howYouKnowAsoblockchain, whyDoYouWantBePart, indicative, otherWhyDoYouWantBePart } = this.state
+        const communityMembersCollection = collection(firestore, 'community members')
+        addDoc(communityMembersCollection, {
+            name,
+            indicative,
+            phone,
+            email,
+            howYouKnowAsoblockchain,
+            whyDoYouWantBePart: whyDoYouWantBePart === "other" ? otherWhyDoYouWantBePart : whyDoYouWantBePart,
+            hasPaid: false,
+            hash: '',
+            photo: '',
+            address: '',
+            subscription: '',
+            dateInscription: new Date()
+        }).then((response) => {
+            this.props.toggleConfirmation(true)
+         }).catch((e) => console.error(e))
+    }
+
+    render() {
+        const { name, phone, email, howYouKnowAsoblockchain, whyDoYouWantBePart, indicative, isValidForm, otherWhyDoYouWantBePart } = this.state
+        return (
+            <Dialog
+                open={this.props.isFormCommunityOpen}
+                TransitionComponent={Transition}
+                disableEscapeKeyDown
+                PaperProps={{ style: { backgroundColor: "#07062e", width: '100%' } }}
+                onClose={this.handleClose}
+                aria-describedby="alert-dialog-slide-description">
+                <div className='p-10 flex flex-col justify-center items-center relative'>
+                    <IconButton onClick={this.props.toggleFormCommunityMember.bind(null, false)} sx={{ position: 'absolute', top: '2%', right: '2%' }}>
+                        <Close sx={{ fill: "#FFF" }} />
+                    </IconButton>
+                    <img src={LogoWhite} className='w-[3em]' alt="/" />
+                    <span className='text-white text-2xl font-bold mt-6'>Membresia</span>
+                    <div className='grid grid-cols-2 gap-6 w-full mt-5'>
+                        <div className='text-center'>
+                            <span className='text-4xl font-bold text-indigo-600 block'>$30usd</span>
+                            <span className='text-white text-base font-bold block'>Mensual</span>
+                        </div>
+                        <div className='text-center'>
+                            <span className='text-4xl font-bold text-green-500 block'>$50usd</span>
+                            <span className='text-white text-base font-bold block'>Anual</span>
+                        </div>
                     </div>
-                    <div className='text-center'>
-                        <span className='text-4xl font-bold text-green-500 block'>$100usd</span>
-                        <span className='text-white text-base font-bold block'>Anual</span>
+                    <span className='text-white text-xl font-bold mt-6 text-center'>Llena el formulario para ser parte</span>
+                    <div className='w-full'>
+                        <CustomTextField fullWidth label="Nombre" type="text" value={name} onChange={this.handleSetName} />
+                        <div className='flex'>
+                            <CustomTextField label="Indicativo" type="text" select value={indicative} onChange={this.handleSetIndicative} sx={{ mr: 1, display: 'flex', width: '40%' }}>
+                                {COUNTRIES.map((country) => (
+                                    <MenuItem key={country.id} value={country.phoneCode}>{country.phoneCode} <img src={country.flag} alt="/" width="30" className='ml-2' /></MenuItem>
+                                ))}
+                            </CustomTextField>
+                            <CustomTextField fullWidth label="Telèfono" type="number" value={phone} onChange={this.handleSetPhone} />
+                        </div>
                     </div>
+                    <CustomTextField fullWidth label="Email" type="email" value={email} onChange={this.handleSetEmail} />
+                    <CustomTextField fullWidth label="¿Cómo te enteraste de AsoBlockchain?" type="text" select value={howYouKnowAsoblockchain} onChange={this.handleSetHowYouKnowAsoblockchain} >
+                        <MenuItem value="instagram">Instagram</MenuItem>
+                        <MenuItem value="facebook">Facebook</MenuItem>
+                        <MenuItem value="twitter">Twitter</MenuItem>
+                        <MenuItem value="youtube">Youtube</MenuItem>
+                        <MenuItem value="news">Noticias</MenuItem>
+                        <MenuItem value="advertising">Publicidad</MenuItem>
+                        <MenuItem value="friend">Amigo / Conocido</MenuItem>
+                        <MenuItem value="other">Otro</MenuItem>
+                    </CustomTextField>
+                    <CustomTextField fullWidth label="¿Por qué quieres ser parte?" type="text" select value={whyDoYouWantBePart} onChange={this.handleSetWhyDoYouWantBePart}>
+                        <MenuItem value="learn_blockchain_and_cryptocurrencies">Quiero aprender blockchain y criptomonedas</MenuItem>
+                        <MenuItem value="have_cripto_bussines">Tengo un emprendimiento cripto</MenuItem>
+                        <MenuItem value="shear_cripto_knowledge">Compartir mi conocimiento y contribuir al crecimiento de la comunidad</MenuItem>
+                        <MenuItem value="other">Otro</MenuItem>
+                    </CustomTextField>
+                    {whyDoYouWantBePart === 'other' && <CustomTextField fullWidth label="Escribe por qué quieres ser parte" type="text" value={otherWhyDoYouWantBePart} />}
+                    <span className='text-white text-xs mt-6'>* Al inscribirte estas de acuerdo con el manejo de tus datos</span>
+                    <button className='button-subscribe'
+                        style={{
+                            marginTop: '2em',
+                            background: isValidForm ? '#00b707' : '#333258',
+                            color: isValidForm ? '#FFF' : '#595959',
+                        }}
+                        onClick={this.handleClose}>
+                        Inscribirme
+                    </button>
                 </div>
-                <span className='text-white text-xl font-bold mt-6 text-center'>Llena el formulario para ser parte</span>
-                <div className='grid grid-cols-2 gap-6 w-full'>
-                    <CustomTextField fullWidth label="Nombre" type="text" value={name} onChange={(event) => { setName(event.target.value) }} />
-                    <CustomTextField fullWidth label="Telèfono" type="number" value={phone} onChange={(event) => { setPhone(event.target.value) }} />
-                </div>
-                <CustomTextField fullWidth label="Email" type="email" value={email} onChange={(event) => { setEmail(event.target.value) }} />
-                <CustomTextField fullWidth label="¿Cómo te enteraste de AsoBlockchain?" type="text" select value={howYouKnowAsoblockchain} onChange={(event) => { setHowYouKnowAsoblockchain(event.target.value) }} >
-                    <MenuItem value="social_networks">Redes sociales</MenuItem>
-                    <MenuItem value="news">Noticias</MenuItem>
-                    <MenuItem value="advertising">Publicidad</MenuItem>
-                    <MenuItem value="friend">Amigo / Conocido</MenuItem>
-                    <MenuItem value="other">Otro</MenuItem>
-                </CustomTextField>
-                <CustomTextField fullWidth label="¿Por qué quieres ser parte?" type="text" select value={whyDoYouWantBePart} onChange={(event) => { setwhyDoYouWantBePart(event.target.value) }}>
-                    <MenuItem value="connect_community">Quiero conectarme con la comunidad</MenuItem>
-                    <MenuItem value="learn_blockchain">Estoy interesado en aprender de blockchain</MenuItem>
-                    <MenuItem value="learn_crypto">Quiero aprender de criptomonedas</MenuItem>
-                    <MenuItem value="share_knowledge">Me gustaria compartir mi conocimiento</MenuItem>
-                    <MenuItem value="other">Otro</MenuItem>
-                </CustomTextField>
-                <span className='text-white text-xs mt-6'>* Al inscribirte estas de acuerdo con el manejo de tus datos</span>
-                <button className='button-subscribe' style={{ marginTop: '2em' }} onClick={handleClose}>Inscribirme</button>
-            </div>
-        </Dialog >
-    )
+            </Dialog>
+        )
+    }
+
 }
-
-export default DialogFormCommunityMember

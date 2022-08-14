@@ -64,3 +64,7 @@
 .form-community-member-container {
     background: #07062e;
 }
+
+.MuiSelect-select {
+    display: flex !important;
+}

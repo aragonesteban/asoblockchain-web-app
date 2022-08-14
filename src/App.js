@@ -5,12 +5,10 @@ import './App.css';
 // STYLES
 import Theme from "./config/theme";
 import { GlobalStyles } from "./components/GlobalStyles";
-import styled from "styled-components"
 
 import { routes } from './routes'
 
 import Navbar from './components/Navbar';
-import Home from './pages/Home';
 import { Footer } from './components/Footer';
 
 function App() {

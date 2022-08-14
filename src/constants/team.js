@@ -3,6 +3,7 @@ import fabianDelgado from '../assets/team/fabian_delgado.jpeg'
 import alejandroCelis from '../assets/team/alejandro_celis.jpeg'
 import danielaCordoba from '../assets/team/daniela_cordoba.jpg'
 import estebanAragon from '../assets/team/esteban_aragon.png'
+import santiagoGuzman from '../assets/team/santiago_guzman.jpg'
 
 export const TEAM = [
     {
@@ -31,6 +32,14 @@ export const TEAM = [
     },
     {
         id: 4,
+        name: "Santiago Guzman",
+        rol: "Marketing",
+        image: santiagoGuzman,
+        linkedin: 'https://www.linkedin.com/in/santiagoguzman008/',
+        instagram: 'https://www.instagram.com/elcriptoparcero/'
+    },
+    {
+        id: 5,
         name: "Daniela Cordoba",
         rol: "Community Manager",
         image: danielaCordoba,
@@ -38,7 +47,7 @@ export const TEAM = [
         instagram: 'https://www.instagram.com/danielazuarr/'
     },
     {
-        id: 5,
+        id: 6,
         name: "Esteban Aragon",
         rol: "Software Developer",
         image: estebanAragon,
