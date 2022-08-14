@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import logo from '../../assets/logo_color.png';
+import logo from '../../assets/logo_color_text_white.png';
 import title from '../../assets/logo_letters_white.png';
 
 export const NavbarContainer = styled.header`
@@ -23,7 +23,7 @@ export const Logo = styled.img.attrs({
   src: `${logo}`
 })`
   margin-left: 10vw;
-  width: 5vw;
+  width: 8vw;
   @media (max-width: 768px) {
     margin-left: 5vw;
   }

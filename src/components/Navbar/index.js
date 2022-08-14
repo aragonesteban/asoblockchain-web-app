@@ -6,7 +6,6 @@ import {
     NavbarContainer,
     LogoAsoblockchain,
     Logo,
-    Title,
     NavbarItemsContainer,
     NavbarItemText,
     NavbarItem,
@@ -23,9 +22,7 @@ const Navbar = () => {
         <NavbarContainer>
             <LogoAsoblockchain>
                 <Logo />
-                <Title />
             </LogoAsoblockchain>
-
 
             <NavbarItemsContainer>
                 {routes.map((route) => (
