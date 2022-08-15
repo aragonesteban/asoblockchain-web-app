@@ -9,6 +9,7 @@ export const NavbarContainer = styled.header`
   padding-top: 2em;
   justify-content: space-between;
   z-index: 1000;
+  position: relative;
   @media (max-width: 640px) {
     justify-content: center;
   }
