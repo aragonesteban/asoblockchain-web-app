@@ -10,6 +10,7 @@ import { routes } from './routes'
 
 import Navbar from './components/Navbar';
 import { Footer } from './components/Footer';
+import WhatsAppButton from './components/WhatsappButton';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           ))}
         </Routes>
         <Footer />
+        <WhatsAppButton />
       </Fragment>
     </Theme>
   );

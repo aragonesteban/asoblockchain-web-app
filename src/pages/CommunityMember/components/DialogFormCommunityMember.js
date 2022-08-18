@@ -196,7 +196,7 @@ export default class DialogFormCommunityMember extends Component {
                     <CustomTextField fullWidth label="¿Por qué quieres ser parte?" type="text" select value={whyDoYouWantBePart} onChange={this.handleSetWhyDoYouWantBePart}>
                         <MenuItem value="learn_blockchain_and_cryptocurrencies">Quiero aprender blockchain y criptomonedas</MenuItem>
                         <MenuItem value="have_cripto_bussines">Tengo un emprendimiento cripto</MenuItem>
-                        <MenuItem value="shear_cripto_knowledge">Compartir mi conocimiento y contribuir al crecimiento de la comunidad</MenuItem>
+                        <MenuItem value="share_cripto_knowledge">Compartir mi conocimiento y contribuir al crecimiento de la comunidad</MenuItem>
                         <MenuItem value="other">Otro</MenuItem>
                     </CustomTextField>
                     {whyDoYouWantBePart === 'other' && <CustomTextField fullWidth label="Escribe por qué quieres ser parte" type="text" value={otherWhyDoYouWantBePart} />}

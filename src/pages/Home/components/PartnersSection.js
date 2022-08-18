@@ -33,9 +33,9 @@ const PartnersSection = () => {
     return (
         <PartnersContainer>
             <PartnersTitle style={{ fontSize: '2em' }}>
-                Socios Fundadores
+                Asociados
             </PartnersTitle>
-            <BodyText>Conoce los fundadores</BodyText>
+            <BodyText>Conoce los asociados de nuestra asociación</BodyText>
             <div className='relative flex items-center p-10'>
                 <MdChevronLeft onClick={slideLeft} size={40} color='#fff' className='opacity-30 cursor-pointer hover:opacity-100 ease-in-out duration-300' />
                 <div
