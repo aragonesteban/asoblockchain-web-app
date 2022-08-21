@@ -162,12 +162,12 @@ export default class DialogFormCommunityMember extends Component {
                     <span className='text-white text-2xl font-bold mt-6'>Membresia</span>
                     <div className='grid grid-cols-2 gap-6 w-full mt-5'>
                         <div className='text-center'>
-                            <span className='text-4xl font-bold text-indigo-600 block'>$30usd</span>
-                            <span className='text-white text-base font-bold block'>Mensual</span>
+                            <span className='text-4xl font-bold text-indigo-600 block'>$50usd</span>
+                            <span className='text-white text-base font-bold block'>Anual</span>
                         </div>
                         <div className='text-center'>
-                            <span className='text-4xl font-bold text-green-500 block'>$50usd</span>
-                            <span className='text-white text-base font-bold block'>Anual</span>
+                            <span className='text-4xl font-bold text-green-500 block'>$80usd</span>
+                            <span className='w-[10em] m-auto text-white text-base font-bold block'>Anual con avatar personalizado</span>
                         </div>
                     </div>
                     <span className='text-white text-xl font-bold mt-6 text-center'>Llena el formulario para ser parte</span>
